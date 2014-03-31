@@ -3,7 +3,7 @@
 void myButton::setup(int x, int y, string url){
 
 
-    //lŠdt nun extern erstellte Buttons
+    //lädt nun extern erstellte Buttons
     button.loadImage(url);
 
     xPos = x;
@@ -24,7 +24,7 @@ void myButton::draw(){
 
 bool myButton::isClicked(int x, int y){
 
-    //hier wird geprŸft ob sich die Maus innerhalb oder au§erhalb der erstellten Buttons befindet
+    //hier wird geprüft ob sich die Maus innerhalb oder außerhalb der erstellten Buttons befindet
     if( (x > xPos && x < xPos+width) && (y > yPos && y < yPos+height) ){
         return TRUE;
     } else {

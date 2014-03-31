@@ -3359,7 +3359,7 @@
 
 1396275572 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\icon.rc
 
-1396277632 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\board.cpp
+1396279455 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\board.cpp
 	"board.h"
 
 1396275572 c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\board.h
@@ -3386,14 +3386,14 @@
 	"ofMain.h"
 	"ofxOsc.h"
 
-1396275572 c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\colorchange.h
+1396278612 c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\colorchange.h
 	<iostream>
 	"ofMain.h"
 
 1396275572 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\button.cpp
 	"button.h"
 
-1396275572 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\colorchange.cpp
+1396278525 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\colorchange.cpp
 	"colorChange.h"
 
 1396275572 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\main.cpp
@@ -3409,6 +3409,6 @@
 1396275572 c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\testapp.h
 	"ofMain.h"
 
-1396275572 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\writing.cpp
+1396278946 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\writing.cpp
 	"writing.h"
 

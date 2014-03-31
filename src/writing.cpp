@@ -2,65 +2,75 @@
 
 
 void Writing::setup(int r, int g, int b){
+
     red = r;
     green = g;
     blue = b;
+
 }
 
 
-void Writing::deleteIt()
-{
+void Writing::deleteIt(){
 
     allPolylines.clear();
     polyline.clear();
+
 }
 
-vector< ofPolyline > Writing::getVectorArray()
-{
-    //
+
+vector< ofPolyline > Writing::getVectorArray(){
+
     return allPolylines;
+
 }
+
 
 void Writing::changeColor(int r, int g, int b){
+
     red = r;
     green = g;
     blue = b;
 
+}
+
+
+void Writing::setFirstPoint(float x_touch , float y_touch){
+
+    polyline.addVertex(ofPoint(x_touch,y_touch));
 
 }
-void Writing::setFirstPoint(float x_touch , float y_touch)
-{
-    polyline.addVertex(ofPoint(x_touch,y_touch));
-}
+
 
 ofColor Writing::getColor(){
+
     return ofColor(red, green, blue);
+
 }
 
-void Writing::setNewPoint(float x_touch , float y_touch)
-{
+
+void Writing::setNewPoint(float x_touch , float y_touch){
+
     polyline.addVertex(ofPoint(x_touch,y_touch));
 
 }
 
-void Writing::setLastPoint(float x_touch, float y_touch)
-{
+
+void Writing::setLastPoint(float x_touch, float y_touch){
+
     allPolylines.push_back( polyline );
     polyline.clear();
+
 };
 
 
+void Writing::draw(){
 
-void Writing::draw()
-{
     ofSetColor(red,green,blue);
     polyline.getSmoothed(100, 20);
 
+
     ofMesh meshy;
     meshy.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
-
-    widthSmooth = 10;
-    angleSmooth;
 
     for (int i = 0;  i < polyline.getVertices().size(); i++){
         me_m_one = i-1;
@@ -79,11 +89,7 @@ void Writing::draw()
     meshy.draw();
 
 
-
-
-    for(vector<ofPolyline> ::iterator it = allPolylines.begin(); it != allPolylines.end(); ++it)
-    {
-
+    for(vector<ofPolyline> ::iterator it = allPolylines.begin(); it != allPolylines.end(); ++it){
 
         if(it->size()==1){
 
@@ -97,8 +103,6 @@ void Writing::draw()
             ofMesh meshy;
             meshy.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
 
-            widthSmooth = 10;
-            angleSmooth;
 
             for (int i = 0;  i < it->getVertices().size(); i++){
                 me_m_one = i-1;
@@ -118,13 +122,8 @@ void Writing::draw()
             meshy.draw();
 
 
-
-
         }
     }
-
-
-
 
 }
 

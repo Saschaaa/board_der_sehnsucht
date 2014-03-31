@@ -18,19 +18,16 @@ public:
     void setup(int,int,int,int,int);
     void changeColor();
     void draw();
-    void Fill();
-    void NoFill();
+
     bool isClicked(int, int);
 
     int height;
     int width;
-
     int xPos;
     int yPos;
     int red;
     int green;
     int blue;
-
 
 };
 

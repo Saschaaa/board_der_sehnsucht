@@ -28,6 +28,10 @@ void board::setup(){
 //--------------------------------------------------------------
 void board::update(){
 
+
+//----------------------------------------SEHNSUCHTSGENERATOR--------------------------------
+
+
     if(ofGetElapsedTimeMillis() - time >= 4000){
         osc.generator_min();
         time = ofGetElapsedTimeMillis();
@@ -49,9 +53,14 @@ void board::update(){
 
 
 
+
+
+
 //--------------------------------------------------------------
 void board::draw(){
 
+
+//----------------------------------------SCREENELEMENTE ZEICHNEN-----------------------------------------------------
     ofSetColor(255);
 
     background.draw(0,0);
@@ -100,10 +109,12 @@ void board::draw(){
 //--------------------------------------------------------------
 void board::keyPressed(int key){
 
+//---------------------------------------------FULLSCREENMODUS--------------------------------
     if(key == 'x'){
         ofToggleFullscreen();
     }
 
+//-------------------------------------------SEHNSUCHTSGENERATOR----------------------------
     if(key == 'c'){
         osc.generator_min();
     }
@@ -133,8 +144,8 @@ void board::mouseMoved(int x, int y){
 void board::mouseDragged(int x, int y, int button){
 
 
-    //schreiben nur innerhalb des drawBoards möglich
-    if( !deleteButton.isClicked(x, y) && !sendButton.isClicked(x, y) && x < drawBoard.width + 65   && x > drawBoard.width - drawBoard.width +65 && y < drawBoard.height + 130  && y > drawBoard.height-drawBoard.height +130 ){
+    //--------------------------------------------------PUNKTE DER SEHNSUCHT HINZUFÜGEN---------------------------
+    if( x < drawBoard.width + 65   && x > drawBoard.width - drawBoard.width +65 && y < drawBoard.height + 130  && y > drawBoard.height-drawBoard.height +130 ){
         theWriting.setNewPoint(x, y);
     }
 
@@ -143,20 +154,55 @@ void board::mouseDragged(int x, int y, int button){
 //--------------------------------------------------------------
 void board::mousePressed(int x, int y, int button){
 
-    //schreiben nur innerhalb des drawBoards möglich
-    if( !deleteButton.isClicked(x, y) && !sendButton.isClicked(x, y) && x < drawBoard.width + 65 && x > drawBoard.width - drawBoard.width + 65 && y < drawBoard.height + 130 && y > drawBoard.height-drawBoard.height + 130 ){
+
+    //---------------------------------------------------------NEUER STARTPUNKT------------------------------------------
+    if( x < drawBoard.width + 65 && x > drawBoard.width - drawBoard.width + 65 && y < drawBoard.height + 130 && y > drawBoard.height-drawBoard.height + 130 ){
+
         theWriting.setFirstPoint(x, y);
 
     }
 
-    if( deleteButton.isClicked(x, y) ){
+
+    //--------------------------------------------------------SEHNSUCHT LÖSCHEN-------------------------------------------------------
+    else if( deleteButton.isClicked(x, y) ){
+
         theWriting.deleteIt();
+
     }
 
-    if( sendButton.isClicked(x, y) ){
+
+    //--------------------------------------------------------SEHNSUCHT SCHICKEN-------------------------------------------------------
+    else if( sendButton.isClicked(x, y) ){
 
         osc.sendVectorArray( theWriting.getVectorArray(), theWriting.getColor(), colorIndex );
         theWriting.deleteIt();
+
+    }
+
+
+   //-------------------------------------------------------------FARBAUSWAHL--------------------------------------------------------------
+    else if( redButton.isClicked(x, y) ){
+
+        theWriting.changeColor(155,23,64);
+        colorhelp = 10;
+        colorIndex = 1;
+
+    }
+
+
+    else if( blueButton.isClicked(x, y) ){
+
+        theWriting.changeColor(0,0,128);
+        colorhelp = 20;
+        colorIndex = 2;
+
+    }
+
+    else if( greenButton.isClicked(x, y) ){
+
+        theWriting.changeColor(0,139,0);
+        colorhelp = 30;
+        colorIndex = 3;
 
     }
 
@@ -166,38 +212,13 @@ void board::mousePressed(int x, int y, int button){
 //--------------------------------------------------------------
 void board::mouseReleased(int x, int y, int button){
 
-    //schreiben nur innerhalb des drawBoards möglich
+
+    //-----------------------------------------------------LETZTEN PUNKT SETZEN--------------------------------------------------------------------------
     if( !deleteButton.isClicked(x, y) && !sendButton.isClicked(x, y) && x < drawBoard.width + 65 && x > drawBoard.width - drawBoard.width + 65 && y < drawBoard.height + 130 && y > drawBoard.height-drawBoard.height + 130){
+
         theWriting.setLastPoint(x, y);
 
     }
-
-
-    if( redButton.isClicked(x, y) ){
-
-        theWriting.changeColor(155,23,64);
-        colorhelp = 10;
-        colorIndex = 1;
-
-    }
-
-
-    if( blueButton.isClicked(x, y) ){
-
-        theWriting.changeColor(0,0,128);
-        colorhelp = 20;
-        colorIndex = 2;
-
-    }
-
-    if( greenButton.isClicked(x, y) ){
-
-        theWriting.changeColor(0,139,0);
-        colorhelp = 30;
-        colorIndex = 3;
-
-    }
-
 }
 
 //--------------------------------------------------------------

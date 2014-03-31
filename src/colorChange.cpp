@@ -27,13 +27,6 @@ void colorChange::draw(){
 
 }
 
-void colorChange::Fill(){
-    ofFill();
-}
-
-void colorChange::NoFill(){
-    ofNoFill();
-}
 
 bool colorChange::isClicked(int x, int y){
 

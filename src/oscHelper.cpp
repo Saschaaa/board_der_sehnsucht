@@ -7,6 +7,8 @@ void oscHelper::setup(string host, int port){
 
 
 
+//-----SEHNSUCHTSGENERATOR(MIN)-----------
+
 void oscHelper::generator_min(){
 
     min.clear();
@@ -28,6 +30,7 @@ void oscHelper::generator_min(){
 }
 
 
+//-----SEHNSUCHTSGENERATOR(MID)-----------
 void oscHelper::generator_mid(){
 
     mid_1.clear();
@@ -58,7 +61,7 @@ void oscHelper::generator_mid(){
 
 }
 
-
+//-----SEHNSUCHTSGENERATOR(MAX)-----------
 void oscHelper::generator_max(){
 
     max_1.clear();
@@ -107,7 +110,7 @@ void oscHelper::generator_max(){
 
 
 
-
+//-----SEHNSUCHT VERSCHICKEN------
 void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor color, int colorInd ){
 
     ofxOscMessage m;
