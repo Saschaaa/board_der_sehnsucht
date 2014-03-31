@@ -6,17 +6,17 @@ void board::setup(){
     ofSetColor(255);
     ofSetFrameRate(160);
 
-    osc.setup("192.168.178.26", 1200);
+    osc.setup("141.75.33.223", 1200);
 
-    deleteButton.setup(1075, 300, "elements/loeschen.png");
-    sendButton.setup(1075, 425, "elements/senden.png");
+    deleteButton.setup(1475, 300, "elements/loeschen.png");
+    sendButton.setup(1475, 425, "elements/senden.png");
     drawBoard.loadImage("elements/hg.png");
     headline.loadImage("elements/schrift.png");
     background.loadImage("elements/hintergrund.png");
 
-    redButton.setup(1100,225,155,23,64);
-    blueButton.setup(1175,225,0,0,128);
-    greenButton.setup(1250,225,0,139,0);
+    redButton.setup(1500,225,155,23,64);
+    blueButton.setup(1575,225,0,0,128);
+    greenButton.setup(1650,225,0,139,0);
 
     theWriting.setup(155,23,64);
 
