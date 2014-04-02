@@ -3359,7 +3359,7 @@
 
 1396275572 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\icon.rc
 
-1396279455 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\board.cpp
+1396433827 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\board.cpp
 	"board.h"
 
 1396275572 c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\board.h
@@ -3369,7 +3369,7 @@
 	"oscHelper.h"
 	"colorChange.h"
 
-1396275572 c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\writing.h
+1396435252 c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\writing.h
 	"ofMain.h"
 	"ofxOsc.h"
 
@@ -3390,17 +3390,17 @@
 	<iostream>
 	"ofMain.h"
 
-1396275572 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\button.cpp
+1396279968 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\button.cpp
 	"button.h"
 
 1396278525 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\colorchange.cpp
 	"colorChange.h"
 
-1396275572 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\main.cpp
+1396435505 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\main.cpp
 	"ofMain.h"
 	"board.h"
 
-1396275572 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\oschelper.cpp
+1396279968 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\oschelper.cpp
 	"oscHelper.h"
 
 1396275572 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\testapp.cpp
@@ -3409,6 +3409,6 @@
 1396275572 c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\testapp.h
 	"ofMain.h"
 
-1396278946 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\writing.cpp
+1396435295 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\writing.cpp
 	"writing.h"
 

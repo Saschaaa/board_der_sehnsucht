@@ -67,10 +67,10 @@ void Writing::draw(){
 
     ofSetColor(red,green,blue);
     polyline.getSmoothed(100, 20);
-
-
-    ofMesh meshy;
     meshy.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+
+    meshy.clear();
+
 
     for (int i = 0;  i < polyline.getVertices().size(); i++){
         me_m_one = i-1;
@@ -100,8 +100,9 @@ void Writing::draw(){
         else
         {
 
-            ofMesh meshy;
-            meshy.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+            meshy.clear();
+
+
 
 
             for (int i = 0;  i < it->getVertices().size(); i++){

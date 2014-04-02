@@ -6,7 +6,7 @@ void board::setup(){
     ofSetColor(255);
     ofSetFrameRate(160);
 
-    osc.setup("141.75.33.223", 1200);
+    //osc.setup("141.75.33.223", 1200);
 
     deleteButton.setup(1475, 300, "elements/loeschen.png");
     sendButton.setup(1475, 425, "elements/senden.png");
@@ -31,6 +31,7 @@ void board::update(){
 
 //----------------------------------------SEHNSUCHTSGENERATOR--------------------------------
 
+/*
 
     if(ofGetElapsedTimeMillis() - time >= 4000){
         osc.generator_min();
@@ -46,6 +47,8 @@ void board::update(){
         osc.generator_max();
         time3 = ofGetElapsedTimeMillis();
     }
+
+    */
 
 }
 

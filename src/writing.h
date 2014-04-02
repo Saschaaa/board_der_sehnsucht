@@ -17,13 +17,14 @@ public:
     void changeColor(int,int,int);
     void setup(int, int, int);
 
+
     int red;
     int green;
     int blue;
 
     ofColor getColor();
 
-    vector<ofPolyline>  getVectorArray();
+    vector<ofPolyline> getVectorArray();
     vector<ofPolyline> allPolylines;
 
     ofPolyline polyline;
@@ -40,6 +41,10 @@ public:
 
     float angle;
     float dist;
+
+
+
+    ofMesh meshy;
 
 
 
