@@ -8,17 +8,17 @@ void board::setup(){
 
     //osc.setup("141.75.33.223", 1200);
 
-    deleteButton.setup(1475, 300, "elements/loeschen.png");
-    sendButton.setup(1475, 425, "elements/senden.png");
-    drawBoard.loadImage("elements/hg.png");
+    deleteButton.setup(975, 250, "elements/loeschen.png");
+    sendButton.setup(975, 375, "elements/senden.png");
+    drawBoard.loadImage("elements/drawboard.png");
     headline.loadImage("elements/schrift.png");
-    background.loadImage("elements/hintergrund.png");
+    background.loadImage("elements/tablet1.png");
 
-    redButton.setup(1500,225,155,23,64);
-    blueButton.setup(1575,225,0,0,128);
-    greenButton.setup(1650,225,0,139,0);
+    //redButton.setup(1000,225,155,23,64);
+    //blueButton.setup(1075,225,0,0,128);
+    //greenButton.setup(1150,225,0,139,0);
 
-    theWriting.setup(155,23,64);
+    theWriting.setup(0,0,128);
 
     colorhelp = 10;
     colorIndex = 1;
@@ -67,7 +67,7 @@ void board::draw(){
     ofSetColor(255);
 
     background.draw(0,0);
-    drawBoard.draw(65,130);
+    drawBoard.draw(100,130);
     headline.draw(175,20);
 
 
@@ -148,7 +148,7 @@ void board::mouseDragged(int x, int y, int button){
 
 
     //--------------------------------------------------PUNKTE DER SEHNSUCHT HINZUFÜGEN---------------------------
-    if( x < drawBoard.width + 65   && x > drawBoard.width - drawBoard.width +65 && y < drawBoard.height + 130  && y > drawBoard.height-drawBoard.height +130 ){
+    if( x < drawBoard.width + 100   && x > drawBoard.width - drawBoard.width + 100 && y < drawBoard.height + 130  && y > drawBoard.height-drawBoard.height +130 ){
         theWriting.setNewPoint(x, y);
     }
 
@@ -159,7 +159,7 @@ void board::mousePressed(int x, int y, int button){
 
 
     //---------------------------------------------------------NEUER STARTPUNKT------------------------------------------
-    if( x < drawBoard.width + 65 && x > drawBoard.width - drawBoard.width + 65 && y < drawBoard.height + 130 && y > drawBoard.height-drawBoard.height + 130 ){
+    if( x < drawBoard.width + 100 && x > drawBoard.width - drawBoard.width + 100 && y < drawBoard.height + 100 && y > drawBoard.height-drawBoard.height + 100 ){
 
         theWriting.setFirstPoint(x, y);
 
