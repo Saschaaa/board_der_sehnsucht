@@ -164,11 +164,27 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
 
     }
 
+    if(m.getNumArgs() < 400){
+
+        m.addStringArg("#");
+        sender.sendMessage(m);
+    }
+
+    else{
+
+        m2.addStringArg("#");
+        sender.sendMessage(m);
+        sender.sendMessage(m2);
+
+    }
+
+/*
     m2.addStringArg(";");
     m2.addStringArg("#");
     sender.sendMessage(m);
     sender.sendMessage(m2);
     cout << m.getNumArgs() << endl;
+    */
 
 }
 
