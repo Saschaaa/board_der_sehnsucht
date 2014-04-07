@@ -28,34 +28,30 @@ void board::setup(){
 //--------------------------------------------------------------
 void board::update(){
 
-
 //----------------------------------------SEHNSUCHTSGENERATOR--------------------------------
 
-/*
-
     if(ofGetElapsedTimeMillis() - time >= 4000){
+
         osc.generator_min();
         time = ofGetElapsedTimeMillis();
+
     }
 
     if(ofGetElapsedTimeMillis() - time2 >= 5000) {
+
         osc.generator_mid();
         time2 = ofGetElapsedTimeMillis();
+
     }
 
     if(ofGetElapsedTimeMillis() - time3 >= 6000) {
+
         osc.generator_max();
         time3 = ofGetElapsedTimeMillis();
+
     }
 
-    */
-
 }
-
-
-
-
-
 
 
 
@@ -70,38 +66,45 @@ void board::draw(){
     drawBoard.draw(100,130);
     headline.draw(175,20);
 
-
     theWriting.draw();
 
     if(colorhelp == 0){
+
         redButton.draw();
         blueButton.draw();
         greenButton.draw();
+
     }
 
     if(colorhelp == 10){
+
         ofFill();
         redButton.draw();
         ofNoFill();
         blueButton.draw();
         greenButton.draw();
+
     }
 
     if(colorhelp == 20){
+
         ofNoFill();
         redButton.draw();
         ofFill();
         blueButton.draw();
         ofNoFill();
         greenButton.draw();
+
     }
 
     if(colorhelp == 30){
+
         ofNoFill();
         redButton.draw();
         blueButton.draw();
         ofFill();
         greenButton.draw();
+
     }
 
     deleteButton.draw();
@@ -114,22 +117,29 @@ void board::keyPressed(int key){
 
 //---------------------------------------------FULLSCREENMODUS--------------------------------
     if(key == 'x'){
+
         ofToggleFullscreen();
+
     }
 
 //-------------------------------------------SEHNSUCHTSGENERATOR----------------------------
     if(key == 'c'){
+
         osc.generator_min();
+
     }
 
     if(key == 'v'){
+
         osc.generator_mid();
+
     }
 
     if(key == 'b'){
-        osc.generator_max();
-    }
 
+        osc.generator_max();
+
+    }
 
 }
 
@@ -149,7 +159,9 @@ void board::mouseDragged(int x, int y, int button){
 
     //--------------------------------------------------PUNKTE DER SEHNSUCHT HINZUFÜGEN---------------------------
     if( x < drawBoard.width + 100   && x > drawBoard.width - drawBoard.width + 100 && y < drawBoard.height + 130  && y > drawBoard.height-drawBoard.height +130 ){
+
         theWriting.setNewPoint(x, y);
+
     }
 
 }

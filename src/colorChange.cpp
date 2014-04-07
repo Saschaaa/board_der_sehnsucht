@@ -9,6 +9,7 @@
 #include "colorChange.h"
 
 void colorChange::setup(int x, int y, int r, int g, int b){
+
     width = 40;
     height = 40;
     xPos = x;
@@ -34,9 +35,14 @@ bool colorChange::isClicked(int x, int y){
     if( (x > xPos && x < xPos+width) && (y > yPos && y < yPos+height) ){
 
         return TRUE;
-    } else {
-       ;
-        return FALSE;
+
     }
+
+    else{
+
+        return FALSE;
+
+    }
+
 }
 

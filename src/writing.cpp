@@ -68,13 +68,11 @@ void Writing::draw(){
 
     ofSetColor(red,green,blue);
     polyline.getSmoothed(100, 20);
-
     meshy.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
-
     meshy.clear();
 
-
     for (int i = 0;  i < polyline.getVertices().size(); i++){
+
         me_m_one = i-1;
         me_p_one = i+1;
         if (me_m_one < 0) me_m_one = 0;
@@ -86,6 +84,7 @@ void Writing::draw(){
         offset.y = sin(angle + PI/2) * 4;
         meshy.addVertex(  polyline.getVertices()[i] +  offset );
         meshy.addVertex(  polyline.getVertices()[i] -  offset );
+
     }
 
     meshy.draw();
@@ -97,17 +96,15 @@ void Writing::draw(){
 
             ofFill();
             ofCircle(it->getVertices().back(), 10);
+
         }
 
-        else
-        {
+        else{
 
             meshy.clear();
 
-
-
-
             for (int i = 0;  i < it->getVertices().size(); i++){
+
                 me_m_one = i-1;
                 me_p_one = i+1;
                 if (me_m_one < 0) me_m_one = 0;
@@ -120,12 +117,13 @@ void Writing::draw(){
                 offset.y = sin(angle + PI/2) * 4;
                 meshy.addVertex(  it->getVertices()[i] +  offset );
                 meshy.addVertex(  it->getVertices()[i] -  offset );
+
             }
 
             meshy.draw();
 
-
         }
+
     }
 
 }
