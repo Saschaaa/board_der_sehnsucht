@@ -159,10 +159,24 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
 
         }
 
-        m.addStringArg(";");
-        m2.addStringArg(";");
+        //m.addStringArg(";");
+
+        if(m.getNumArgs() < 400){
+
+            m.addStringArg(";");
+
+        }
+
+        else{
+
+            m2.addStringArg(";");
+
+        }
+
 
     }
+
+
 
     if(m.getNumArgs() < 400){
 
