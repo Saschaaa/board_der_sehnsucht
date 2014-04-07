@@ -25,6 +25,9 @@ private:
     ofxOscSender sender;
 
     ofxOscMessage m;
+    ofxOscMessage m2;
+
+
     ofxOscMessage min;
 
     ofxOscMessage mid_1;

@@ -13,7 +13,7 @@ void oscHelper::setup(string host, int port){
 void oscHelper::generator_min(){
 
     min.clear();
-    min.setAddress("/board2");
+    min.setAddress("/board1");
 
     for(int i = 0; i <= 100; i++){
 
@@ -36,8 +36,8 @@ void oscHelper::generator_mid(){
 
     mid_1.clear();
     mid_2.clear();
-    mid_1.setAddress("/board2");
-    mid_2.setAddress("/board2");
+    mid_1.setAddress("/board1");
+    mid_2.setAddress("/board1");
 
     for(int i = 0; i <= 400; i++){
 
@@ -74,10 +74,10 @@ void oscHelper::generator_max(){
     max_3.clear();
     max_4.clear();
 
-    max_1.setAddress("/board2");
-    max_2.setAddress("/board2");
-    max_3.setAddress("/board2");
-    max_4.setAddress("/board2");
+    max_1.setAddress("/board1");
+    max_2.setAddress("/board1");
+    max_3.setAddress("/board1");
+    max_4.setAddress("/board1");
 
     for(int i = 0; i <= 1000; i++){
 
@@ -130,27 +130,44 @@ void oscHelper::generator_max(){
 void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor color, int colorInd ){
 
     m.clear();
-    m.setAddress("/board2");
+    m2.clear();
+    m.setAddress("/board1");
+    m2.setAddress("/board1");
 
     // Alle abgelegten Vektoren aus "allPolylines" laden
     for(vector< ofPolyline> ::iterator it = VectorArray.begin(); it != VectorArray.end(); ++it){
 
         vector<ofPoint> temp = it->getVertices();
 
+
+
         for(vector<ofPoint>::iterator it_point = temp.begin(); it_point != temp.end(); ++it_point){
 
-            m.addFloatArg(it_point->x);
-            m.addFloatArg(it_point->y);
+            if(m.getNumArgs() < 400){
+
+                m.addFloatArg(it_point->x);
+                m.addFloatArg(it_point->y);
+
+            }
+
+            else{
+
+                m2.addFloatArg(it_point->x);
+                m2.addFloatArg(it_point->y);
+
+            }
 
         }
 
         m.addStringArg(";");
+        m2.addStringArg(";");
 
     }
 
-    m.addStringArg(";");
-    m.addStringArg("#");
+    m2.addStringArg(";");
+    m2.addStringArg("#");
     sender.sendMessage(m);
+    sender.sendMessage(m2);
     cout << m.getNumArgs() << endl;
 
 }

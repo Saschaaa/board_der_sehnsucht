@@ -18,7 +18,7 @@ void board::setup(){
     //blueButton.setup(1075,225,0,0,128);
     //greenButton.setup(1150,225,0,139,0);
 
-    theWriting.setup(0,128,0);
+    theWriting.setup(128,0,0);
 
     colorhelp = 10;
     colorIndex = 1;
