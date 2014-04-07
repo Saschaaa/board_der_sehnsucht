@@ -1655,7 +1655,7 @@
 1395685490 c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\testapp.h
 	"ofMain.h"
 
-1396442373 source:c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\board.cpp
+1396878904 source:c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\board.cpp
 	"board.h"
 
 1396273179 c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\board.h
@@ -1665,7 +1665,7 @@
 	"oscHelper.h"
 	"colorChange.h"
 
-1396440730 c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\writing.h
+1396876955 c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\writing.h
 	"ofMain.h"
 	"ofxOsc.h"
 
@@ -1678,7 +1678,7 @@
 1395687214 c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\button.h
 	"ofMain.h"
 
-1396273179 c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\oschelper.h
+1396877905 c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\oschelper.h
 	"ofMain.h"
 	"ofxOsc.h"
 
@@ -1703,10 +1703,10 @@
 	"ofMain.h"
 	"board.h"
 
-1396442692 source:c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\oschelper.cpp
+1396879548 source:c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\oschelper.cpp
 	"oscHelper.h"
 
-1396440730 source:c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\writing.cpp
+1396879733 source:c:\users\billmann\documents\of_v0.8.0_win_cb_release\of_v0.8.0_win_cb_release\apps\myapps\board_der_sehnsucht\src\writing.cpp
 	"writing.h"
 
 1395940567 source:c:\users\billmann\documents\openframeworks\of_v0.8.0_win_cb_release\addons\ofxosc\libs\oscpack\src\ip\ipendpointname.cpp

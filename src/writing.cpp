@@ -57,6 +57,7 @@ void Writing::setNewPoint(float x_touch , float y_touch){
 
 void Writing::setLastPoint(float x_touch, float y_touch){
 
+    polyline.simplify();
     allPolylines.push_back( polyline );
     polyline.clear();
 
@@ -67,6 +68,7 @@ void Writing::draw(){
 
     ofSetColor(red,green,blue);
     polyline.getSmoothed(100, 20);
+
     meshy.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
 
     meshy.clear();

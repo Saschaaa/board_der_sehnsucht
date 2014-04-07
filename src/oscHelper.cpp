@@ -3,6 +3,7 @@
 void oscHelper::setup(string host, int port){
 
     sender.setup(host, port);
+
 }
 
 
@@ -12,6 +13,7 @@ void oscHelper::setup(string host, int port){
 void oscHelper::generator_min(){
 
     min.clear();
+    min.setAddress("/board2");
 
     for(int i = 0; i <= 100; i++){
 
@@ -22,8 +24,8 @@ void oscHelper::generator_min(){
         min.addFloatArg(l);
     }
 
-    min.addIntArg(3);
     min.addStringArg(";");
+    min.addStringArg("#");
     cout << min.getNumArgs() << endl;
 
     sender.sendMessage(min);
@@ -35,6 +37,8 @@ void oscHelper::generator_mid(){
 
     mid_1.clear();
     mid_2.clear();
+    mid_1.setAddress("/board2");
+    mid_2.setAddress("/board2");
 
     for(int i = 0; i <= 400; i++){
 
@@ -51,9 +55,8 @@ void oscHelper::generator_mid(){
         }
     }
 
-
-    mid_2.addIntArg(2);
     mid_2.addStringArg(";");
+    mid_2.addStringArg("#");
 
     cout << mid_1.getNumArgs() + mid_2.getNumArgs() << endl;
     sender.sendMessage(mid_1);
@@ -69,6 +72,11 @@ void oscHelper::generator_max(){
     max_3.clear();
     max_4.clear();
    // max_5.clear();
+
+    max_1.setAddress("/board2");
+    max_2.setAddress("/board2");
+    max_3.setAddress("/board2");
+    max_4.setAddress("/board2");
 
     for(int i = 0; i <= 1000; i++){
 
@@ -97,8 +105,9 @@ void oscHelper::generator_max(){
 
     }
 
-    max_4.addIntArg(1);
+
     max_4.addStringArg(";");
+    max_4.addStringArg("#");
 
     cout << max_1.getNumArgs() + max_2.getNumArgs() + max_3.getNumArgs() + max_4.getNumArgs() << endl;
     sender.sendMessage(max_1);
@@ -113,9 +122,9 @@ void oscHelper::generator_max(){
 //-----SEHNSUCHT VERSCHICKEN------
 void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor color, int colorInd ){
 
-    ofxOscMessage m;
 
-    m.setAddress("board1");
+    m.clear();
+    m.setAddress("/board2");
 
 
     // Alle abgelegten Vektoren aus "allPolylines" laden
@@ -129,11 +138,15 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
             m.addFloatArg(it_point->x);
             m.addFloatArg(it_point->y);
         }
+        m.addStringArg(";");
 
     }
 
-    m.addIntArg(colorInd);
+
     m.addStringArg(";");
+   // m.addIntArg(colorInd);
+    m.addStringArg("#");
+
     cout << m.getNumArgs() << endl;
 
     sender.sendMessage(m);
