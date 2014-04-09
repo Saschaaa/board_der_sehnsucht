@@ -24,10 +24,44 @@ void oscHelper::generator_min(){
         min.addFloatArg(l);
 
     }
-
     min.addStringArg(";");
     min.addStringArg("#");
     sender.sendMessage(min);
+}
+
+void oscHelper::generator_dynamisch(){
+
+    min.clear();
+    min.setAddress("/board1");
+
+    amountLetters = ofRandom(2,8);
+    for(int i = 0; i <= amountLetters; i++){
+
+        amountPoints = ofRandom(10,90);
+
+        if( min.getNumArgs() + amountPoints * 2 > 400 ){
+
+            sender.sendMessage(min);
+            min.clear();
+
+        }
+
+        for(int i = 0; i <= amountPoints; i++){
+
+            k = ofRandom(100,960);
+            l = ofRandom(100,500);
+
+            min.addFloatArg(k);
+            min.addFloatArg(l);
+
+        }
+        min.addStringArg(";");
+    }
+
+    min.addStringArg("#");
+    sender.sendMessage(min);
+
+
 }
 
 
@@ -59,7 +93,7 @@ void oscHelper::generator_mid(){
 
     }
 
-    mid_2.addStringArg(";");
+
     mid_2.addStringArg("#");
     sender.sendMessage(mid_1);
     sender.sendMessage(mid_2);
@@ -115,7 +149,7 @@ void oscHelper::generator_max(){
     }
 
 
-    max_4.addStringArg(";");
+
     max_4.addStringArg("#");
     sender.sendMessage(max_1);
     sender.sendMessage(max_2);
@@ -139,22 +173,18 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
 
         vector<ofPoint> temp = it->getVertices();
 
-
-
         for(vector<ofPoint>::iterator it_point = temp.begin(); it_point != temp.end(); ++it_point){
 
             if(m.getNumArgs() < 400){
 
                 m.addFloatArg(it_point->x);
                 m.addFloatArg(it_point->y);
-
             }
 
             else{
 
                 m2.addFloatArg(it_point->x);
                 m2.addFloatArg(it_point->y);
-
             }
 
         }

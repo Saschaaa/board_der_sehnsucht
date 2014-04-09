@@ -15,12 +15,16 @@ public:
     void generator_mid();
     void generator_max();
 
+     void generator_dynamisch();
+
 
 private:
 
 
     float l;
     float k;
+
+    int amountPoints, amountLetters;
 
     ofxOscSender sender;
 
