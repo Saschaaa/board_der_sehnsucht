@@ -30,6 +30,37 @@ void oscHelper::generator_min(){
     sender.sendMessage(min);
 }
 
+void oscHelper::generator_dynamisch(){
+
+    min.clear();
+    min.setAddress("/board2");
+
+    amountLetters = ofRandom(2,8);
+    for(int i = 0; i <= amountLetters; i++){
+
+        amountPoints = ofRandom(10,90);
+
+        if( min.getNumArgs()+amountPoints*2 > 400 ){
+
+            sender.sendMessage(min);
+            min.clear();
+        }
+
+        for(int i = 0; i <= amountPoints; i++){
+
+            k = ofRandom(100,950);
+            l = ofRandom(100,500);
+
+            min.addFloatArg(k);
+            min.addFloatArg(l);
+        }
+        min.addStringArg(";");
+    }
+
+    min.addStringArg("#");
+    sender.sendMessage(min);
+}
+
 
 //-----SEHNSUCHTSGENERATOR(MID)-----------
 void oscHelper::generator_mid(){
@@ -130,7 +161,11 @@ void oscHelper::generator_max(){
 void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor color, int colorInd ){
 
     m.clear();
+    m2.clear();
+   // m3.clear();
     m.setAddress("/board2");
+    m2.setAddress("/board2");
+   // m3.setAddress("/board2");
 
     // Alle abgelegten Vektoren aus "allPolylines" laden
     for(vector< ofPolyline> ::iterator it = VectorArray.begin(); it != VectorArray.end(); ++it){
@@ -139,19 +174,75 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
 
         for(vector<ofPoint>::iterator it_point = temp.begin(); it_point != temp.end(); ++it_point){
 
-            m.addFloatArg(it_point->x);
-            m.addFloatArg(it_point->y);
+
+            if(m.getNumArgs() < 400){
+
+                  m.addFloatArg(it_point->x);
+                  m.addFloatArg(it_point->y);
+
+            }
+
+            else{
+
+                 m2.addFloatArg(it_point->x);
+                 m2.addFloatArg(it_point->y);
+
+            }
+
+
 
         }
 
-        m.addStringArg(";");
+        if(m.getNumArgs() < 400){
+
+            m.addStringArg(";");
+
+        }
+
+        else{
+
+            m2.addStringArg(";");
+
+        }
+
+
+        /*if(m.getNumArgs() < 400){
+
+            m.addStringArg(";");
+
+        }
+
+        else{
+
+            m2.addStringArg(";");
+        }*/
+
+
 
     }
 
-    m.addStringArg(";");
-    m.addStringArg("#");
-    sender.sendMessage(m);
+    if(m.getNumArgs() < 400){
+
+        m.addStringArg("#");
+        sender.sendMessage(m);
+
+    }
+
+    else{
+
+        m2.addStringArg("#");
+        sender.sendMessage(m);
+        sender.sendMessage(m2);
+
+    }
+
+
+    //m.addStringArg("#");
+    //sender.sendMessage(m);
+   // sender.sendMessage(m2);
+
     cout << m.getNumArgs() << endl;
+    cout << m2.getNumArgs() << endl;
 
 }
 

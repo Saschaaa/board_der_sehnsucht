@@ -15,6 +15,7 @@ public:
     void generator_mid();
     void generator_max();
 
+    void generator_dynamisch();
 
 private:
 
@@ -22,9 +23,15 @@ private:
     float l;
     float k;
 
+    int amountPoints, amountLetters;
+
     ofxOscSender sender;
 
     ofxOscMessage m;
+    ofxOscMessage m2;
+    ofxOscMessage m3;
+    ofxOscMessage m4;
+
     ofxOscMessage min;
 
     ofxOscMessage mid_1;

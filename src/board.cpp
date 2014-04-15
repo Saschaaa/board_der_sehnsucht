@@ -4,14 +4,15 @@
 void board::setup(){
 
     ofSetColor(255);
-    ofSetFrameRate(160);
+    ofSetFrameRate(60);
+    ofHideCursor();
 
-    osc.setup("141.75.33.253", 1200);
+    osc.setup("141.75.33.234", 1200);
 
-    deleteButton.setup(975, 250, "elements/loeschen.png");
-    sendButton.setup(975, 375, "elements/senden.png");
+    deleteButton.setup(975, 250, "elements/loeschen4.png");
+    sendButton.setup(975, 375, "elements/senden4.png");
     drawBoard.loadImage("elements/drawboard.png");
-    headline.loadImage("elements/schrift.png");
+    headline.loadImage("elements/wonachsehnstdudich3.png");
     background.loadImage("elements/tablet2.png");
 
     //redButton.setup(1000,225,155,23,64);
@@ -20,8 +21,8 @@ void board::setup(){
 
     theWriting.setup(0,128,0);
 
-    colorhelp = 10;
-    colorIndex = 1;
+   // colorhelp = 10;
+   //  colorIndex = 1;
 
 }
 
@@ -30,6 +31,13 @@ void board::update(){
 
 //----------------------------------------SEHNSUCHTSGENERATOR--------------------------------
 
+ /* if(ofGetElapsedTimeMillis() - time >= 4000){
+    osc.generator_dynamisch();
+    time = ofGetElapsedTimeMillis();
+}
+*/
+
+/*
     if(ofGetElapsedTimeMillis() - time >= 4000){
 
         osc.generator_min();
@@ -50,7 +58,7 @@ void board::update(){
         time3 = ofGetElapsedTimeMillis();
 
     }
-
+*/
 }
 
 
@@ -68,7 +76,7 @@ void board::draw(){
 
     theWriting.draw();
 
-    if(colorhelp == 0){
+ /*   if(colorhelp == 0){
 
         redButton.draw();
         blueButton.draw();
@@ -106,6 +114,8 @@ void board::draw(){
         greenButton.draw();
 
     }
+
+    */
 
     deleteButton.draw();
     sendButton.draw();
