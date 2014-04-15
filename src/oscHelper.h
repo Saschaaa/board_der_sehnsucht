@@ -15,12 +15,11 @@ public:
     void generator_mid();
     void generator_max();
 
-<<<<<<< HEAD
     void generator_dynamisch();
-=======
-     void generator_dynamisch();
 
->>>>>>> 2de6221aa23d6a1c9583950ffacac44e40108c60
+
+
+
 
 private:
 
@@ -34,12 +33,11 @@ private:
 
     ofxOscMessage m;
     ofxOscMessage m2;
-<<<<<<< HEAD
+
     ofxOscMessage m3;
     ofxOscMessage m4;
-=======
 
->>>>>>> 2de6221aa23d6a1c9583950ffacac44e40108c60
+
 
     ofxOscMessage min;
 

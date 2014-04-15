@@ -7,11 +7,9 @@ void board::setup(){
     ofSetFrameRate(60);
     ofHideCursor();
 
-<<<<<<< HEAD
+
     osc.setup("141.75.33.234", 1200);
-=======
-    osc.setup("192.168.178.18", 1200);
->>>>>>> 2de6221aa23d6a1c9583950ffacac44e40108c60
+
 
     deleteButton.setup(975, 250, "elements/loeschen4.png");
     sendButton.setup(975, 375, "elements/senden4.png");
@@ -34,7 +32,7 @@ void board::setup(){
 void board::update(){
 
 //----------------------------------------SEHNSUCHTSGENERATOR--------------------------------
-<<<<<<< HEAD
+
 
  /* if(ofGetElapsedTimeMillis() - time >= 4000){
     osc.generator_dynamisch();
@@ -42,8 +40,8 @@ void board::update(){
 }
 */
 
-=======
->>>>>>> 2de6221aa23d6a1c9583950ffacac44e40108c60
+
+
 /*
     if(ofGetElapsedTimeMillis() - time >= 4000){
 
@@ -66,17 +64,16 @@ void board::update(){
 
     }
 */
-<<<<<<< HEAD
-=======
 
-    if(ofGetElapsedTimeMillis() - time >= 5000){
+
+  /*  if(ofGetElapsedTimeMillis() - time >= 5000){
 
         osc.generator_dynamisch();
         time = ofGetElapsedTimeMillis();
 
     }
+*/
 
->>>>>>> 2de6221aa23d6a1c9583950ffacac44e40108c60
 }
 
 
