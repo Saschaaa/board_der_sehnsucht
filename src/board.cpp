@@ -8,14 +8,14 @@ void board::setup(){
     ofHideCursor();
 
 
-    osc.setup("141.75.33.234", 1200);
+    osc.setup("192.168.1.107", 1200);
 
-
+    deleteLast.setup(975, 125, "elements/pfeil.png");
     deleteButton.setup(975, 250, "elements/loeschen4.png");
     sendButton.setup(975, 375, "elements/senden4.png");
     drawBoard.loadImage("elements/drawboard.png");
     headline.loadImage("elements/wonachsehnstdudich3.png");
-    background.loadImage("elements/tablet2.png");
+    background.loadImage("elements/ruine_blau.png");
 
     //redButton.setup(1000,225,155,23,64);
     //blueButton.setup(1075,225,0,0,128);
@@ -134,6 +134,7 @@ void board::draw(){
 
     deleteButton.draw();
     sendButton.draw();
+    deleteLast.draw();
 
 }
 
@@ -189,6 +190,9 @@ void board::mouseDragged(int x, int y, int button){
 
     }
 
+
+
+
 }
 
 //--------------------------------------------------------------
@@ -216,6 +220,12 @@ void board::mousePressed(int x, int y, int button){
 
         osc.sendVectorArray( theWriting.getVectorArray(), theWriting.getColor(), colorIndex );
         theWriting.deleteIt();
+
+    }
+
+    else if(deleteLast.isClicked(x,y)){
+
+        theWriting.deleteLast();
 
     }
 
@@ -254,7 +264,7 @@ void board::mouseReleased(int x, int y, int button){
 
 
     //-----------------------------------------------------LETZTEN PUNKT SETZEN--------------------------------------------------------------------------
-    if( !deleteButton.isClicked(x, y) && !sendButton.isClicked(x, y) && x < drawBoard.width + 65 && x > drawBoard.width - drawBoard.width + 65 && y < drawBoard.height + 130 && y > drawBoard.height-drawBoard.height + 130){
+    if( !deleteButton.isClicked(x, y) && !sendButton.isClicked(x, y) && !deleteLast.isClicked(x,y) && x < drawBoard.width + 65 && x > drawBoard.width - drawBoard.width + 65 && y < drawBoard.height + 130 && y > drawBoard.height-drawBoard.height + 130){
 
         theWriting.setLastPoint(x, y);
 

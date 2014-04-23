@@ -163,9 +163,11 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
     m.clear();
     m2.clear();
     m3.clear();
+    m4.clear();
     m.setAddress("/board2");
     m2.setAddress("/board2");
     m3.setAddress("/board2");
+    m4.setAddress("/board2");
 
     // Alle abgelegten Vektoren aus "allPolylines" laden
     for(vector< ofPolyline> ::iterator it = VectorArray.begin(); it != VectorArray.end(); ++it){
@@ -196,6 +198,13 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
 
             }
 
+            else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() < 400){
+
+                 m4.addFloatArg(it_point->x);
+                 m4.addFloatArg(it_point->y);
+
+            }
+
 
 
         }
@@ -215,6 +224,11 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
         else if(m.getNumArgs() >= 399 && m2.getNumArgs() >= 399 && m3.getNumArgs() < 400){
 
             m3.addStringArg(";");
+        }
+
+        else if(m.getNumArgs() >= 399 && m2.getNumArgs() >= 399 && m3.getNumArgs() >=  399 && m4.getNumArgs() < 400){
+
+            m4.addStringArg(";");
         }
 
 
@@ -257,6 +271,15 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
 
     }
 
+    else if(m.getNumArgs() >= 399 && m2.getNumArgs()>= 399 && m3.getNumArgs() >= 399 && m4.getNumArgs() < 400){
+
+        m4.addStringArg("#");
+        sender.sendMessage(m);
+        sender.sendMessage(m2);
+        sender.sendMessage(m3);
+        sender.sendMessage(m4);
+
+    }
 
     //m.addStringArg("#");
     //sender.sendMessage(m);

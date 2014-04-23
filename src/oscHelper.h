@@ -33,7 +33,6 @@ private:
 
     ofxOscMessage m;
     ofxOscMessage m2;
-
     ofxOscMessage m3;
     ofxOscMessage m4;
 

@@ -14,6 +14,7 @@ public:
     void setLastPoint(float,float );
     void draw();
     void deleteIt();
+    void deleteLast();
     void changeColor(int,int,int);
     void setup(int, int, int);
 

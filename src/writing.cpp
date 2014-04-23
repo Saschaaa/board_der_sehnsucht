@@ -17,6 +17,16 @@ void Writing::deleteIt(){
 
 }
 
+void Writing::deleteLast(){
+
+    if(allPolylines.size() != 0){
+
+        allPolylines.erase(allPolylines.end());
+
+    }
+
+}
+
 
 vector< ofPolyline > Writing::getVectorArray(){
 
@@ -80,7 +90,7 @@ void Writing::draw(){
         diff = polyline.getVertices()[me_p_one] - polyline.getVertices()[me_m_one];
         angle = atan2(diff.y, diff.x);
         dist = diff.length();
-        offset.x = cos(angle + PI/2) * 3;
+        offset.x = cos(angle + PI/2) * 2;
         offset.y = sin(angle + PI/2) * 4;
         meshy.addVertex(  polyline.getVertices()[i] +  offset );
         meshy.addVertex(  polyline.getVertices()[i] -  offset );
@@ -113,7 +123,7 @@ void Writing::draw(){
                 angle = atan2(diff.y, diff.x);
                 dist = diff.length();
                 offset;
-                offset.x = cos(angle + PI/2) * 3;
+                offset.x = cos(angle + PI/2) * 2;
                 offset.y = sin(angle + PI/2) * 4;
                 meshy.addVertex(  it->getVertices()[i] +  offset );
                 meshy.addVertex(  it->getVertices()[i] -  offset );

@@ -39,6 +39,7 @@ public:
 
     myButton deleteButton;
     myButton sendButton;
+    myButton deleteLast;
 
     colorChange redButton;
     colorChange blueButton;
