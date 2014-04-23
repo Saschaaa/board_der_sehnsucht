@@ -263,12 +263,6 @@
 		</Unit>
 		<Unit filename="src/oscHelper.cpp" />
 		<Unit filename="src/oscHelper.h" />
-		<Unit filename="src/testApp.cpp">
-			<Option virtualFolder="src" />
-		</Unit>
-		<Unit filename="src/testApp.h">
-			<Option virtualFolder="src" />
-		</Unit>
 		<Unit filename="src/writing.cpp" />
 		<Unit filename="src/writing.h" />
 		<Extensions>

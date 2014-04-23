@@ -6,6 +6,7 @@
 #include "button.h"
 #include "oscHelper.h"
 #include "colorChange.h"
+#include "ofxXmlSettings.h"
 
 
 
@@ -51,6 +52,13 @@ public:
     ofImage background;
 
     oscHelper osc;
+
+    ofxXmlSettings XML;
+
+    int red;
+    int green;
+    int blue;
+
 
 
 

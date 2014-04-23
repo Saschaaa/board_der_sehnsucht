@@ -10,22 +10,35 @@ void board::setup(){
 
     osc.setup("192.168.1.107", 1200);
 
-    deleteLast.setup(975, 125, "elements/pfeil.png");
+    deleteLast.setup(975, 125, "elements/pfeil2.png");
     deleteButton.setup(975, 250, "elements/loeschen4.png");
     sendButton.setup(975, 375, "elements/senden4.png");
     drawBoard.loadImage("elements/drawboard.png");
     headline.loadImage("elements/wonachsehnstdudich3.png");
-    background.loadImage("elements/ruine_blau.png");
+    background.loadImage("elements/ruine_lila3.png");
 
     //redButton.setup(1000,225,155,23,64);
     //blueButton.setup(1075,225,0,0,128);
     //greenButton.setup(1150,225,0,139,0);
 
-    theWriting.setup(128,0,0);
+
+
 
    // colorhelp = 10;
    //  colorIndex = 1;
 
+   	if( XML.loadFile("mySettings.xml") ){
+		cout << "loaded" << endl;
+	}else{
+		cout << "not_loaded" << endl;
+	}
+
+    red		= XML.getValue("BACKGROUND:COLOR:RED", 0);
+	green	= XML.getValue("BACKGROUND:COLOR:GREEN", 0);
+	blue	= XML.getValue("BACKGROUND:COLOR:BLUE", 0);
+
+
+	theWriting.setup(red,green,blue);
 }
 
 //--------------------------------------------------------------
