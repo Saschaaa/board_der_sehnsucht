@@ -35,6 +35,7 @@ private:
     ofxOscMessage m2;
     ofxOscMessage m3;
     ofxOscMessage m4;
+    ofxOscMessage m5;
 
 
 

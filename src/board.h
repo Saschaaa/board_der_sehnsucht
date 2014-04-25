@@ -51,6 +51,7 @@ public:
     ofImage headline;
     ofImage background;
 
+
     oscHelper osc;
 
     ofxXmlSettings XML;
@@ -58,6 +59,16 @@ public:
     int red;
     int green;
     int blue;
+
+    string deletebutton_s;
+    string deletelast_s;
+    string sendbutton_s;
+    string drawboard_s;
+    string headline_s;
+    string background_s;
+
+    string ip_s;
+    int port_s;
 
 
 

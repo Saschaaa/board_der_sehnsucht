@@ -8,24 +8,18 @@ void board::setup(){
     ofHideCursor();
 
 
-    osc.setup("192.168.1.107", 1200);
+    //osc.setup("192.168.1.107", 1200);
 
-    deleteLast.setup(975, 125, "elements/pfeil2.png");
-    deleteButton.setup(975, 250, "elements/loeschen4.png");
-    sendButton.setup(975, 375, "elements/senden4.png");
-    drawBoard.loadImage("elements/drawboard.png");
-    headline.loadImage("elements/wonachsehnstdudich3.png");
-    background.loadImage("elements/ruine_lila3.png");
+    //deleteLast.setup(975, 125, "elements/pfeil2.png");
+    //deleteButton.setup(975, 250, "elements/loeschen4.png");
+    //sendButton.setup(975, 375, "elements/senden4.png");
+    //drawBoard.loadImage("elements/drawboard.png");
+    //headline.loadImage("elements/wonachsehnstdudich3.png");
+    //background.loadImage("elements/ruine_lila3.png");
 
     //redButton.setup(1000,225,155,23,64);
     //blueButton.setup(1075,225,0,0,128);
     //greenButton.setup(1150,225,0,139,0);
-
-
-
-
-   // colorhelp = 10;
-   //  colorIndex = 1;
 
    	if( XML.loadFile("mySettings.xml") ){
 		cout << "loaded" << endl;
@@ -37,8 +31,27 @@ void board::setup(){
 	green	= XML.getValue("BACKGROUND:COLOR:GREEN", 0);
 	blue	= XML.getValue("BACKGROUND:COLOR:BLUE", 0);
 
+	deletebutton_s = XML.getValue("SETTINGS:ELEMENTS:DELETEBUTTON", "");
+	sendbutton_s = XML.getValue("SETTINGS:ELEMENTS:SENDBUTTON", "");
+	deletelast_s = XML.getValue("SETTINGS:ELEMENTS:DELETELAST", "");
+	drawboard_s = XML.getValue("SETTINGS:ELEMENTS:DRAWBOARD", "");
+	background_s = XML.getValue("SETTINGS:ELEMENTS:BACKGROUND", "");
+	headline_s = XML.getValue("SETTINGS:ELEMENTS:HEADLINE", "");
+
+	ip_s = XML.getValue("SETTINGS:OSC:IP", "");
+	port_s = XML.getValue("SETTINGS:OSC:PORT", 0);
+
+
+    osc.setup(ip_s, port_s);
+    deleteButton.setup(975, 250, deletebutton_s);
+    deleteLast.setup(975, 125, deletelast_s);
+    sendButton.setup(975, 375, sendbutton_s);
+    drawBoard.loadImage(drawboard_s);
+    headline.loadImage(headline_s);
+    background.loadImage(background_s);
 
 	theWriting.setup(red,green,blue);
+
 }
 
 //--------------------------------------------------------------
@@ -277,7 +290,13 @@ void board::mouseReleased(int x, int y, int button){
 
 
     //-----------------------------------------------------LETZTEN PUNKT SETZEN--------------------------------------------------------------------------
-    if( !deleteButton.isClicked(x, y) && !sendButton.isClicked(x, y) && !deleteLast.isClicked(x,y) && x < drawBoard.width + 65 && x > drawBoard.width - drawBoard.width + 65 && y < drawBoard.height + 130 && y > drawBoard.height-drawBoard.height + 130){
+   /* if( !deleteButton.isClicked(x, y) && !sendButton.isClicked(x, y) && !deleteLast.isClicked(x,y) && x < drawBoard.width + 65 && x > drawBoard.width - drawBoard.width + 65 && y < drawBoard.height + 130 && y > drawBoard.height-drawBoard.height + 130){
+
+        theWriting.setLastPoint(x, y);
+
+    }*/
+
+    if( !deleteButton.isClicked(x, y) && !sendButton.isClicked(x, y) && !deleteLast.isClicked(x,y)){
 
         theWriting.setLastPoint(x, y);
 
