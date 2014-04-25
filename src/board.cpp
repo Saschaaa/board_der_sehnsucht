@@ -43,9 +43,9 @@ void board::setup(){
 
 
     osc.setup(ip_s, port_s);
-    deleteButton.setup(975, 250, deletebutton_s);
-    deleteLast.setup(975, 125, deletelast_s);
-    sendButton.setup(975, 375, sendbutton_s);
+    deleteButton.setup(80, 625, deletebutton_s);
+    deleteLast.setup(350, 625, deletelast_s);
+    sendButton.setup(950, 625, sendbutton_s);
     drawBoard.loadImage(drawboard_s);
     headline.loadImage(headline_s);
     background.loadImage(background_s);
@@ -112,8 +112,8 @@ void board::draw(){
     ofSetColor(255);
 
     background.draw(0,0);
-    drawBoard.draw(100,130);
-    headline.draw(175,20);
+    drawBoard.draw(50,130);
+    headline.draw(70,20);
 
     theWriting.draw();
 
@@ -210,7 +210,7 @@ void board::mouseDragged(int x, int y, int button){
 
 
     //--------------------------------------------------PUNKTE DER SEHNSUCHT HINZUFÜGEN---------------------------
-    if( x < drawBoard.width + 100   && x > drawBoard.width - drawBoard.width + 100 && y < drawBoard.height + 130  && y > drawBoard.height-drawBoard.height +130 ){
+    if( x < drawBoard.width + 30   && x > drawBoard.width - drawBoard.width + 50 && y < drawBoard.height + 110  && y > drawBoard.height-drawBoard.height +130 ){
 
         theWriting.setNewPoint(x, y);
 
@@ -226,7 +226,7 @@ void board::mousePressed(int x, int y, int button){
 
 
     //---------------------------------------------------------NEUER STARTPUNKT------------------------------------------
-    if( x < drawBoard.width + 100 && x > drawBoard.width - drawBoard.width + 100 && y < drawBoard.height + 100 && y > drawBoard.height-drawBoard.height + 100 ){
+    if( x < drawBoard.width + 30 && x > drawBoard.width - drawBoard.width + 50 && y < drawBoard.height + 110 && y > drawBoard.height-drawBoard.height + 130 ){
 
         theWriting.setFirstPoint(x, y);
 
@@ -290,17 +290,12 @@ void board::mouseReleased(int x, int y, int button){
 
 
     //-----------------------------------------------------LETZTEN PUNKT SETZEN--------------------------------------------------------------------------
-   /* if( !deleteButton.isClicked(x, y) && !sendButton.isClicked(x, y) && !deleteLast.isClicked(x,y) && x < drawBoard.width + 65 && x > drawBoard.width - drawBoard.width + 65 && y < drawBoard.height + 130 && y > drawBoard.height-drawBoard.height + 130){
-
-        theWriting.setLastPoint(x, y);
-
-    }*/
-
     if( !deleteButton.isClicked(x, y) && !sendButton.isClicked(x, y) && !deleteLast.isClicked(x,y)){
 
         theWriting.setLastPoint(x, y);
 
     }
+
 }
 
 //--------------------------------------------------------------
