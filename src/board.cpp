@@ -8,6 +8,10 @@ void board::setup(){
     ofHideCursor();
 
 
+    bTimerReached = false;
+    startTime = ofGetElapsedTimeMillis();  // get the start time
+    endTime = 3000;
+
     //osc.setup("192.168.1.107", 1200);
 
     //deleteLast.setup(975, 125, "elements/pfeil2.png");
@@ -42,6 +46,8 @@ void board::setup(){
 	ip_s = XML.getValue("SETTINGS:OSC:IP", "");
 	port_s = XML.getValue("SETTINGS:OSC:PORT", 0);
 
+	succeed = false;
+
 
     osc.setup(ip_s, port_s);
     deleteButton.setup(80, 625, deletebutton_s);
@@ -53,6 +59,7 @@ void board::setup(){
     background.loadImage(background_s);
 
 	theWriting.setup(red,green,blue);
+
 
 }
 
@@ -110,6 +117,19 @@ void board::update(){
 void board::draw(){
 
 
+    float timer = ofGetElapsedTimeMillis() - startTime;
+
+    if(timer >= endTime && !bTimerReached) {
+        bTimerReached = true;
+        succeed = false;
+        cout << "reached" << endl;
+    }
+/*
+    if(bTimerReached) {
+        //cout << "reached" << endl;
+        bTimerReached = false;
+    }*/
+
 //----------------------------------------SCREENELEMENTE ZEICHNEN-----------------------------------------------------
     ofSetColor(255);
 
@@ -163,7 +183,19 @@ void board::draw(){
     deleteButton.draw();
     sendButton.draw();
     deleteLast.draw();
-    successButton.draw();
+
+    //successButton.resize();
+    //successButton.draw();
+
+    if (succeed){
+           cout << "heppa" << endl;;
+           successButton.draw();
+
+        }else{
+            cout << "out"  << endl;;
+        }
+
+
 
 }
 
@@ -194,6 +226,28 @@ void board::keyPressed(int key){
 
         osc.generator_max();
 
+    }
+
+    if(key == 'n'){
+
+        successButton.draw();
+    }
+
+    if (key == 's'){
+		succeed = !succeed;
+        if (succeed){
+           cout << "heppa" << endl;;
+           //successButton.draw();
+
+        }else{
+            cout << "out"  << endl;;
+        }
+	}
+
+	if(key == ' ') {
+        bTimerReached = false;                     // reset the timer
+        startTime = ofGetElapsedTimeMillis();  // get the start time
+        endTime = 3000; // in milliseconds
     }
 
 }
@@ -249,6 +303,10 @@ void board::mousePressed(int x, int y, int button){
 
         osc.sendVectorArray( theWriting.getVectorArray(), theWriting.getColor(), colorIndex );
         theWriting.deleteIt();
+        succeed = true;
+        bTimerReached = false;                     // reset the timer
+        startTime = ofGetElapsedTimeMillis();  // get the start time
+        endTime = 3000; // in milliseconds
 
     }
 

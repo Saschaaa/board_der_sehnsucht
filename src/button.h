@@ -12,6 +12,7 @@ public:
     void draw();
 
 
+
 private:
 
     int xPos;
@@ -19,6 +20,8 @@ private:
 
     int height;
     int width;
+
+
 
     ofImage button;
 

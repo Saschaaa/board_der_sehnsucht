@@ -72,7 +72,12 @@ public:
     string ip_s;
     int port_s;
 
+    bool succeed;
 
+    float startTime;
+    float endTime;
+
+    bool  bTimerReached;
 
 
 };

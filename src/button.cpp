@@ -21,6 +21,9 @@ void myButton::draw(){
 
 }
 
+
+
+
 bool myButton::isClicked(int x, int y){
 
     //hier wird geprüft ob sich die Maus innerhalb oder außerhalb der erstellten Buttons befindet
