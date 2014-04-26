@@ -37,6 +37,7 @@ void board::setup(){
 	drawboard_s = XML.getValue("SETTINGS:ELEMENTS:DRAWBOARD", "");
 	background_s = XML.getValue("SETTINGS:ELEMENTS:BACKGROUND", "");
 	headline_s = XML.getValue("SETTINGS:ELEMENTS:HEADLINE", "");
+	success_s = XML.getValue("SETTINGS:ELEMENTS:SUCCESSBUTTON", "");
 
 	ip_s = XML.getValue("SETTINGS:OSC:IP", "");
 	port_s = XML.getValue("SETTINGS:OSC:PORT", 0);
@@ -46,6 +47,7 @@ void board::setup(){
     deleteButton.setup(80, 625, deletebutton_s);
     deleteLast.setup(350, 625, deletelast_s);
     sendButton.setup(950, 625, sendbutton_s);
+    successButton.setup(950, 625, success_s);
     drawBoard.loadImage(drawboard_s);
     headline.loadImage(headline_s);
     background.loadImage(background_s);
@@ -161,6 +163,7 @@ void board::draw(){
     deleteButton.draw();
     sendButton.draw();
     deleteLast.draw();
+    successButton.draw();
 
 }
 

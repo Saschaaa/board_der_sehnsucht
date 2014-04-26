@@ -41,6 +41,7 @@ public:
     myButton deleteButton;
     myButton sendButton;
     myButton deleteLast;
+    myButton successButton;
 
     colorChange redButton;
     colorChange blueButton;
@@ -66,6 +67,7 @@ public:
     string drawboard_s;
     string headline_s;
     string background_s;
+    string success_s;
 
     string ip_s;
     int port_s;
