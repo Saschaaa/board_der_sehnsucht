@@ -9,21 +9,9 @@ void board::setup(){
 
 
     bTimerReached = false;
-    startTime = ofGetElapsedTimeMillis();  // get the start time
+    startTime = ofGetElapsedTimeMillis();
     endTime = 3000;
 
-    //osc.setup("192.168.1.107", 1200);
-
-    //deleteLast.setup(975, 125, "elements/pfeil2.png");
-    //deleteButton.setup(975, 250, "elements/loeschen4.png");
-    //sendButton.setup(975, 375, "elements/senden4.png");
-    //drawBoard.loadImage("elements/drawboard.png");
-    //headline.loadImage("elements/wonachsehnstdudich3.png");
-    //background.loadImage("elements/ruine_lila3.png");
-
-    //redButton.setup(1000,225,155,23,64);
-    //blueButton.setup(1075,225,0,0,128);
-    //greenButton.setup(1150,225,0,139,0);
 
    	if( XML.loadFile("mySettings.xml") ){
 		cout << "loaded" << endl;
@@ -68,39 +56,6 @@ void board::update(){
 
 //----------------------------------------SEHNSUCHTSGENERATOR--------------------------------
 
-
- /* if(ofGetElapsedTimeMillis() - time >= 4000){
-    osc.generator_dynamisch();
-    time = ofGetElapsedTimeMillis();
-}
-*/
-
-
-
-/*
-    if(ofGetElapsedTimeMillis() - time >= 4000){
-
-        osc.generator_min();
-        time = ofGetElapsedTimeMillis();
-
-    }
-
-    if(ofGetElapsedTimeMillis() - time2 >= 5000) {
-
-        osc.generator_mid();
-        time2 = ofGetElapsedTimeMillis();
-
-    }
-
-    if(ofGetElapsedTimeMillis() - time3 >= 6000) {
-
-        osc.generator_max();
-        time3 = ofGetElapsedTimeMillis();
-
-    }
-*/
-
-
   /*  if(ofGetElapsedTimeMillis() - time >= 5000){
 
         osc.generator_dynamisch();
@@ -120,15 +75,12 @@ void board::draw(){
     float timer = ofGetElapsedTimeMillis() - startTime;
 
     if(timer >= endTime && !bTimerReached) {
+
         bTimerReached = true;
         succeed = false;
-        cout << "reached" << endl;
+
     }
-/*
-    if(bTimerReached) {
-        //cout << "reached" << endl;
-        bTimerReached = false;
-    }*/
+
 
 //----------------------------------------SCREENELEMENTE ZEICHNEN-----------------------------------------------------
     ofSetColor(255);
@@ -139,63 +91,15 @@ void board::draw(){
 
     theWriting.draw();
 
- /*   if(colorhelp == 0){
-
-        redButton.draw();
-        blueButton.draw();
-        greenButton.draw();
-
-    }
-
-    if(colorhelp == 10){
-
-        ofFill();
-        redButton.draw();
-        ofNoFill();
-        blueButton.draw();
-        greenButton.draw();
-
-    }
-
-    if(colorhelp == 20){
-
-        ofNoFill();
-        redButton.draw();
-        ofFill();
-        blueButton.draw();
-        ofNoFill();
-        greenButton.draw();
-
-    }
-
-    if(colorhelp == 30){
-
-        ofNoFill();
-        redButton.draw();
-        blueButton.draw();
-        ofFill();
-        greenButton.draw();
-
-    }
-
-    */
-
     deleteButton.draw();
     sendButton.draw();
     deleteLast.draw();
 
-    //successButton.resize();
-    //successButton.draw();
+    if(succeed){
 
-    if (succeed){
-           cout << "heppa" << endl;;
            successButton.draw();
 
-        }else{
-            cout << "out"  << endl;;
-        }
-
-
+    }
 
 }
 
@@ -274,8 +178,6 @@ void board::mouseDragged(int x, int y, int button){
     }
 
 
-
-
 }
 
 //--------------------------------------------------------------
@@ -304,10 +206,9 @@ void board::mousePressed(int x, int y, int button){
         osc.sendVectorArray( theWriting.getVectorArray(), theWriting.getColor(), colorIndex );
         theWriting.deleteIt();
         succeed = true;
-        bTimerReached = false;                     // reset the timer
-        startTime = ofGetElapsedTimeMillis();  // get the start time
-        endTime = 3000; // in milliseconds
-
+        bTimerReached = false;
+        startTime = ofGetElapsedTimeMillis();
+        endTime = 3000;
     }
 
     else if(deleteLast.isClicked(x,y)){
@@ -315,34 +216,6 @@ void board::mousePressed(int x, int y, int button){
         theWriting.deleteLast();
 
     }
-
-
-   //-------------------------------------------------------------FARBAUSWAHL--------------------------------------------------------------
-    else if( redButton.isClicked(x, y) ){
-
-        theWriting.changeColor(155,23,64);
-        colorhelp = 10;
-        colorIndex = 1;
-
-    }
-
-
-    else if( blueButton.isClicked(x, y) ){
-
-        theWriting.changeColor(0,0,128);
-        colorhelp = 20;
-        colorIndex = 2;
-
-    }
-
-    else if( greenButton.isClicked(x, y) ){
-
-        theWriting.changeColor(0,139,0);
-        colorhelp = 30;
-        colorIndex = 3;
-
-    }
-
 
 }
 
