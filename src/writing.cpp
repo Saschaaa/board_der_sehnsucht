@@ -67,10 +67,18 @@ void Writing::setNewPoint(float x_touch , float y_touch){
 
 void Writing::setLastPoint(float x_touch, float y_touch){
 
+
+if(polyline.size()){
+
     polyline.simplify();
     allPolylines.push_back( polyline );
     polyline.clear();
 
+}
+else{
+
+    polyline.clear();
+}
 };
 
 
