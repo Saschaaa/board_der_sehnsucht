@@ -3,6 +3,7 @@
 
 #include "ofMain.h"
 #include "ofxOsc.h"
+#include "ofxXmlSettings.h"
 
 class oscHelper {
 
@@ -16,6 +17,9 @@ public:
     void generator_max();
 
     void generator_dynamisch();
+
+
+    void loadXML();
 
 
 
@@ -36,8 +40,11 @@ private:
     ofxOscMessage m3;
     ofxOscMessage m4;
     ofxOscMessage m5;
+    ofxOscMessage m6;
+    ofxOscMessage m7;
 
-
+    ofxXmlSettings XML;
+    string address;
 
     ofxOscMessage min;
 

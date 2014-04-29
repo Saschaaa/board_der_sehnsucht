@@ -6,6 +6,20 @@ void oscHelper::setup(string host, int port){
 
 }
 
+void oscHelper::loadXML(){
+
+     	if( XML.loadFile("address.xml") ){
+		cout << "loaded" << endl;
+	}else{
+		cout << "not_loaded" << endl;
+	}
+
+	address = XML.getValue("SETTINGS:ADDRESS", "");
+
+	cout << address << endl;
+
+}
+
 
 
 //-----SEHNSUCHTSGENERATOR(MIN)-----------
@@ -13,7 +27,7 @@ void oscHelper::setup(string host, int port){
 void oscHelper::generator_min(){
 
     min.clear();
-    min.setAddress("/board2");
+    min.setAddress(address);
 
     for(int i = 0; i <= 100; i++){
 
@@ -33,7 +47,7 @@ void oscHelper::generator_min(){
 void oscHelper::generator_dynamisch(){
 
     min.clear();
-    min.setAddress("/board2");
+    min.setAddress(address);
 
     amountLetters = ofRandom(2,8);
     for(int i = 0; i <= amountLetters; i++){
@@ -67,8 +81,8 @@ void oscHelper::generator_mid(){
 
     mid_1.clear();
     mid_2.clear();
-    mid_1.setAddress("/board2");
-    mid_2.setAddress("/board2");
+    mid_1.setAddress(address);
+    mid_2.setAddress(address);
 
     for(int i = 0; i <= 400; i++){
 
@@ -105,10 +119,10 @@ void oscHelper::generator_max(){
     max_3.clear();
     max_4.clear();
 
-    max_1.setAddress("/board2");
-    max_2.setAddress("/board2");
-    max_3.setAddress("/board2");
-    max_4.setAddress("/board2");
+    max_1.setAddress(address);
+    max_2.setAddress(address);
+    max_3.setAddress(address);
+    max_4.setAddress(address);
 
     for(int i = 0; i <= 1000; i++){
 
@@ -165,11 +179,15 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
     m3.clear();
     m4.clear();
     m5.clear();
-    m.setAddress("/board2");
-    m2.setAddress("/board2");
-    m3.setAddress("/board2");
-    m4.setAddress("/board2");
-    m5.setAddress("/board2");
+    m6.clear();
+    m7.clear();
+    m.setAddress(address);
+    m2.setAddress(address);
+    m3.setAddress(address);
+    m4.setAddress(address);
+    m5.setAddress(address);
+    m6.setAddress(address);
+    m7.setAddress(address);
 
     // Alle abgelegten Vektoren aus "allPolylines" laden
     for(vector< ofPolyline> ::iterator it = VectorArray.begin(); it != VectorArray.end(); ++it){
@@ -214,6 +232,20 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
 
             }
 
+            else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() >= 399 && m6.getNumArgs() < 400){
+
+                 m6.addFloatArg(it_point->x);
+                 m6.addFloatArg(it_point->y);
+
+            }
+
+            else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() >= 399 && m6.getNumArgs() >= 399 && m7.getNumArgs() < 400){
+
+                 m7.addFloatArg(it_point->x);
+                 m7.addFloatArg(it_point->y);
+
+            }
+
 
 
         }
@@ -243,6 +275,18 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
          else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() < 400){
 
                  m5.addStringArg(";");
+            }
+
+            else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() >= 399 && m6.getNumArgs() < 400){
+
+                 m6.addStringArg(";");
+
+            }
+
+             else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() >= 399 && m6.getNumArgs() >= 399 && m7.getNumArgs() < 400){
+
+                 m7.addStringArg(";");
+
             }
 
 
@@ -303,6 +347,32 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
         sender.sendMessage(m3);
         sender.sendMessage(m4);
         sender.sendMessage(m5);
+
+            }
+
+            else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() >= 399 && m6.getNumArgs() < 400){
+
+                 m6.addStringArg("#");
+                 sender.sendMessage(m);
+                sender.sendMessage(m2);
+                sender.sendMessage(m3);
+                sender.sendMessage(m4);
+                sender.sendMessage(m5);
+                sender.sendMessage(m6);
+
+
+            }
+
+             else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() >= 399 && m6.getNumArgs() >= 399 && m7.getNumArgs() < 400){
+
+                 m7.addStringArg("#");
+                 sender.sendMessage(m);
+                sender.sendMessage(m2);
+                sender.sendMessage(m3);
+                sender.sendMessage(m4);
+                sender.sendMessage(m5);
+                sender.sendMessage(m6);
+                sender.sendMessage(m7);
 
             }
 

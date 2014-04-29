@@ -70,8 +70,8 @@ void Writing::setLastPoint(float x_touch, float y_touch){
 
 if(polyline.size()){
 
-    polyline.simplify();
-    allPolylines.push_back( polyline );
+    //polyline.simplify();
+    allPolylines.push_back( polyline.getSmoothed(2,0) );
     polyline.clear();
 
 }
@@ -99,7 +99,7 @@ void Writing::draw(){
         angle = atan2(diff.y, diff.x);
         dist = diff.length();
         offset.x = cos(angle + PI/2) * 2;
-        offset.y = sin(angle + PI/2) * 4;
+        offset.y = sin(angle + PI/2) * 3;
         meshy.addVertex(  polyline.getVertices()[i] +  offset );
         meshy.addVertex(  polyline.getVertices()[i] -  offset );
 
@@ -132,7 +132,7 @@ void Writing::draw(){
                 dist = diff.length();
                 offset;
                 offset.x = cos(angle + PI/2) * 2;
-                offset.y = sin(angle + PI/2) * 4;
+                offset.y = sin(angle + PI/2) * 3;
                 meshy.addVertex(  it->getVertices()[i] +  offset );
                 meshy.addVertex(  it->getVertices()[i] -  offset );
 
