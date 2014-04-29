@@ -116,28 +116,7 @@ void board::keyPressed(int key){
     }
 
 //-------------------------------------------SEHNSUCHTSGENERATOR----------------------------
-    if(key == 'c'){
 
-        osc.generator_min();
-
-    }
-
-    if(key == 'v'){
-
-        osc.generator_mid();
-
-    }
-
-    if(key == 'b'){
-
-        osc.generator_max();
-
-    }
-
-    if(key == 'n'){
-
-        successButton.draw();
-    }
 
     if (key == 's'){
 		succeed = !succeed;

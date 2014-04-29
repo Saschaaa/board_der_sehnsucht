@@ -22,9 +22,6 @@ public:
     void loadXML();
 
 
-
-
-
 private:
 
 
@@ -42,6 +39,8 @@ private:
     ofxOscMessage m5;
     ofxOscMessage m6;
     ofxOscMessage m7;
+    ofxOscMessage m8;
+    ofxOscMessage m9;
 
     ofxXmlSettings XML;
     string address;
