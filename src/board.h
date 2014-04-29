@@ -54,7 +54,6 @@ public:
 
 
     oscHelper osc;
-    oscHelper xml;
 
     ofxXmlSettings XML;
 

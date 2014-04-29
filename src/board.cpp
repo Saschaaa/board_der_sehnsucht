@@ -36,8 +36,9 @@ void board::setup(){
 
 	succeed = false;
 
+    osc.setup(ip_s, port_s);
+    osc.loadXML();
 
-   // osc.setup(ip_s, port_s);
     deleteButton.setup(50, 625, deletebutton_s);
     deleteLast.setup(320, 625, deletelast_s);
     sendButton.setup(950, 625, sendbutton_s);
@@ -47,7 +48,7 @@ void board::setup(){
     background.loadImage(background_s);
 
 	theWriting.setup(red,green,blue);
-	xml.loadXML();
+
 
 
 }

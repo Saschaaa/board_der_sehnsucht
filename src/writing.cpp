@@ -70,8 +70,8 @@ void Writing::setLastPoint(float x_touch, float y_touch){
 
 if(polyline.size()){
 
-    //polyline.simplify();
-    allPolylines.push_back( polyline.getSmoothed(2,0) );
+
+    allPolylines.push_back( polyline.getSmoothed(2,1) );
     polyline.clear();
 
 }
