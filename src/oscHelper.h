@@ -41,6 +41,7 @@ private:
     ofxOscMessage m7;
     ofxOscMessage m8;
     ofxOscMessage m9;
+    ofxOscMessage m10;
 
     ofxXmlSettings XML;
     string address;

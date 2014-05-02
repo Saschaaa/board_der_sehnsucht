@@ -183,6 +183,7 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
     m7.clear();
     m8.clear();
     m9.clear();
+    m10.clear()
 
     m.setAddress(address);
     m2.setAddress(address);
@@ -193,6 +194,7 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
     m7.setAddress(address);
     m8.setAddress(address);
     m9.setAddress(address);
+    m10.setAddress(address);
 
     // Alle abgelegten Vektoren aus "allPolylines" laden
     for(vector< ofPolyline> ::iterator it = VectorArray.begin(); it != VectorArray.end(); ++it){
@@ -265,6 +267,13 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
 
             }
 
+             else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() >= 399 && m6.getNumArgs() >= 399 && m7.getNumArgs() >= 399 && m8.getNumArgs() >= 399 && m9.getNumArgs() >= 399 && m10.getNumArgs() < 400){
+
+                 m10.addFloatArg(it_point->x);
+                 m10.addFloatArg(it_point->y);
+
+            }
+
 
 
         }
@@ -318,6 +327,13 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
             else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() >= 399 && m6.getNumArgs() >= 399 && m7.getNumArgs() >= 399 && m8.getNumArgs() >= 399 && m9.getNumArgs() < 400){
 
                  m9.addStringArg(";");
+
+            }
+
+            else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() >= 399 && m6.getNumArgs() >= 399 && m7.getNumArgs() >= 399 && m8.getNumArgs() >= 399 && m9.getNumArgs() >= 399 && m10.getNumArgs() < 400){
+
+                 m10.addStringArg(";");
+
 
             }
 
@@ -424,7 +440,7 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
 
             else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() >= 399 && m6.getNumArgs() >= 399 && m7.getNumArgs() >= 399 && m8.getNumArgs() >= 399 && m9.getNumArgs() < 400){
 
-               m9.addStringArg("#");
+                m9.addStringArg("#");
                  sender.sendMessage(m);
                 sender.sendMessage(m2);
                 sender.sendMessage(m3);
@@ -434,6 +450,23 @@ void oscHelper::sendVectorArray(  vector< ofPolyline >  VectorArray, ofColor col
                 sender.sendMessage(m7);
                 sender.sendMessage(m8);
                 sender.sendMessage(m9);
+            }
+
+            else if(m.getNumArgs() >= 399 && m2.getNumArgs() >=  399 && m3.getNumArgs() >= 399 && m4.getNumArgs() >= 399 && m5.getNumArgs() >= 399 && m6.getNumArgs() >= 399 && m7.getNumArgs() >= 399 && m8.getNumArgs() >= 399 && m9.getNumArgs() >= 399 && m10.getNumArgs() < 400){
+
+                  m10.addStringArg("#");
+                 sender.sendMessage(m);
+                sender.sendMessage(m2);
+                sender.sendMessage(m3);
+                sender.sendMessage(m4);
+                sender.sendMessage(m5);
+                sender.sendMessage(m6);
+                sender.sendMessage(m7);
+                sender.sendMessage(m8);
+                sender.sendMessage(m9);
+                sender.sendMessage(m10);
+
+
             }
 
     //m.addStringArg("#");
